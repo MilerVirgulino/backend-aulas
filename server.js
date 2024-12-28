@@ -2,9 +2,13 @@ const express = require("express");
 const multer = require("multer");
 const fs = require("fs");
 const mammoth = require("mammoth");
+const cors = require("cors");  // Importando o pacote cors
 
 const app = express();
 const upload = multer({ dest: "uploads/" }); // Diretório temporário para uploads
+
+// Habilitar o CORS para todas as origens (você pode restringir para origens específicas)
+app.use(cors());
 
 // Middleware para servir arquivos estáticos (HTML e JS)
 app.use(express.static(__dirname));
